@@ -1,34 +1,24 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "History Of Jordans";
 }
 
-<!DOCTYPE html>
+<h1>@ViewBag.ShoeModel</h1>
+<h2>Model #@ViewBag.ModelNumber</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    <h1>@ViewBag.ShoeModel</h1>
-    <h2>Model #@ViewBag.ModelNumber</h2>
+<h5>Description: </h5>
+<div>@Html.Raw(ViewBag.Description)</div>
 
-    <h5>Description: </h5>
-    <div>@Html.Raw(ViewBag.Description)</div>
-
-    @if (ViewBag.Brands.Length > 0)
+@if (ViewBag.Brands.Length > 0)
+{
+<h5>Brands:</h5>
+<div>
+<ul>
+    @foreach (var brand in ViewBag.Brands)
     {
-        <h5>Brands:</h5>
-    <div>
-        <ul>
-            @foreach (var brand in ViewBag.Brands)
-            {
-                <li>@brand</li>
-            }
-            </ul>
-        </div>
-      }
-   </div>
-</body>
-</html>
+        <li>@brand</li>
+    }
+    </ul>
+</div>
+}
+  
