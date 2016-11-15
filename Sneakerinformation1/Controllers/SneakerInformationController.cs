@@ -8,5 +8,9 @@ namespace Sneakerinformation1.Controllers
 {
     public class SneakerInformationController : Controller
     {
+        public string Detail()
+        {
+            return "Hello from the Sneaker Information controller!";
+        }
     }
 }
