@@ -1,5 +1,17 @@
 ﻿@{
     Layout = null;
+
+    var shoeModel = "Nike Air Jordan Retro";
+    var modelNumber = 1;
+    var description = "<p>On October 18, 1984, the NBA banned Michael Jordan’s black and red Air Jordan 1s for violating the league’s uniform codes. This decision triggered a craze that foreshadowed a legend in the making. </p>";
+    var brands = new string[]
+    {
+        "Designer: Peter Moore ",
+        "C0-Designer: Bruce Kilgore",
+        "Brand Name: Nike ",
+        "Designed for: Michael Jordan",
+        "Popularity Rate: 8"   
+    };
 }
 
 <!DOCTYPE html>
@@ -11,7 +23,14 @@
 </head>
 <body>
     <div>
-        <h1>Hello from our view!</h1>
+        <h1>@shoeModel</h1>
+        <h2>Model #@modelNumber</h2>
+
+        <h5>Description: </h5>
+        <div>@Html.Raw(description)</div>
+
+        <h5>Brands:</h5>
+        </div>@brands</div>
     </div>
 </body>
 </html>
