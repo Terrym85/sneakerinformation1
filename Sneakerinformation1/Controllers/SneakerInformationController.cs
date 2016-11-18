@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sneakerinformation1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,19 +11,22 @@ namespace Sneakerinformation1.Controllers
     {
         public ActionResult Detail()
         {
-            ViewBag.ShoeModel = "History Of Air Jordan";
-            ViewBag.ModelNumber = 1;
-            ViewBag.Description = "<p>On October 18, 1984, the NBA banned Michael Jordan’s black and red Air Jordan 1s for violating the league’s uniform codes. This decision triggered a craze that foreshadowed a legend in the making. </p>";
-            ViewBag.Brands = new string[]
+            var sneakers = new Sneakers()
             {
-                "Designer: Peter Moore ",
-                "Brand Name: Nike ",
-                "Designed for: Michael Jordan",
-                "Retail: $160",
-                "Release Year: 1985"
+                ShoeModel = "History Of Air Jordan",
+                ModelNumber = 1,
+                DescriptionHtml = "<p>On October 18, 1984, the NBA banned Michael Jordan’s black and red Air Jordan 1s for violating the league’s uniform codes. This decision triggered a craze that foreshadowed a legend in the making. </p>",
+                Brands = new Brand[]
+                {
+                    new Brand() {Name = "Peter Moore", Role = "Designer" },
+                    new Brand() {Name = "Nike", Role = "Brand Name" },
+                    new Brand() {Name = "Michael Jordan", Role = "Designed for" },
+                    new Brand() {Name = "$160", Role = "Retail" },
+                    new Brand() {Name = "1985", Role = "Release Year" },
+                }
             };
-        
-            return View();
+
+            return View(sneakers);
         }
     }
 }

@@ -1,24 +1,45 @@
-﻿@{
+﻿@model Sneakerinformation1.Models.Sneakers
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "History Of Jordans";
+    ViewBag.Title = Model.DisplayText;
 }
 
-<h1>@ViewBag.ShoeModel</h1>
-<h2>Model #@ViewBag.ModelNumber</h2>
+<h2>@Model.DisplayText</h2>
 
-<h5>Description: </h5>
-<div>@Html.Raw(ViewBag.Description)</div>
-
-@if (ViewBag.Brands.Length > 0)
-{
-<h5>Brands:</h5>
-<div>
-<ul>
-    @foreach (var brand in ViewBag.Brands)
-    {
-        <li>@brand</li>
-    }
-    </ul>
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Shoe Model:</label> @Model.ShoeModel</h5>
+            <h5><label>Model #:</label> @Model.ModelNumber</h5>
+            <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No")</h5>
+            @if (Model.Brands.Length > 0)
+            {
+            <h5>Brands:</h5>
+            <div>
+                <ul>
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <li>@brand.Role: @brand.Name</li>
+                    }
+                </ul>
+            </div>
+            }
+        </div>
+        <h5>Description: </h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
+</strong></p>
+    </div>
+    <div class="col-md-6">
+        <img src="~/Images/@Model.CoverImageFileName"
+             alt="@Model.DisplayText" class="img-responsive" />
+    </div>
 </div>
-}
+
+<h1>@Model.ShoeModel</h1>
+<h2>Model #@Model.ModelNumber</h2>
+
+
+
+
   
