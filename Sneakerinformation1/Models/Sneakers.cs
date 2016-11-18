@@ -13,5 +13,24 @@ namespace Sneakerinformation1.Models
         public string DescriptionHtml { get; set; }
         public Brand[] Brands { get; set; }
         public bool Favorite { get; set; }
+
+        public string DisplayText
+        {
+            get
+            {
+                return ShoeModel + " #" + ModelNumber;
+            }
+        }
+
+        // series-title-issuenumber.jpg
+        public string CoverImageFileName
+        {
+            get
+            {
+                return ShoeModel.Replace(" ","-")
+                    .ToLower() + "-" + ModelNumber + ".jpg";
+
+            }
+        }
     }
 }
