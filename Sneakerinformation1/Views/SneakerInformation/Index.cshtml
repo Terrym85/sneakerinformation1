@@ -10,8 +10,9 @@
     @foreach (var sneakers in Model)
     {
         <div class="col-md-3">
-            <h4>@sneakers.DisplayText</h4>
-            <img src="~/Images/ch1 1.jpg"
+            <h4>@Html.ActionLink(sneakers.DisplayText, "Detail", 
+               new { id = sneakers.Id })</h4>
+            <img src="~/Images/bred 1.png"
                  alt="@sneakers.DisplayText"
                  class="img-responsive" />
         </div>
