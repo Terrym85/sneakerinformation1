@@ -22,7 +22,7 @@ namespace Sneakerinformation1.Models
             }
         }
 
-        // series-title-issuenumber.jpg
+        // modelnumber-Id-modelnumber.jpg
         public string CoverImageFileName
         {
             get
