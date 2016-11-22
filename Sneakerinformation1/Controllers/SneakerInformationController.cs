@@ -1,4 +1,5 @@
-﻿using Sneakerinformation1.Models;
+﻿using Sneakerinformation1.Data;
+using Sneakerinformation1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,21 @@ namespace Sneakerinformation1.Controllers
 {
     public class SneakerInformationController : Controller
     {
-        public ActionResult Detail()
+        private SneakerInformationRepository _sneakerinformationRepository = null;
+
+        public SneakerInformationController()
         {
-            var sneakers = new Sneakers()
+            _sneakerinformationRepository = new SneakerInformationRepository();
+        }
+
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
             {
-                ShoeModel = "History Of Air Jordan",
-                ModelNumber = 1,
-                DescriptionHtml = "<p>On October 18, 1984, the NBA banned Michael Jordan’s black and red Air Jordan 1s for violating the league’s uniform codes. This decision triggered a craze that foreshadowed a legend in the making. </p>",
-                Brands = new Brand[]
-                {
-                    new Brand() {Name = "Peter Moore", Role = "Designer" },
-                    new Brand() {Name = "Nike", Role = "Brand Name" },
-                    new Brand() {Name = "Michael Jordan", Role = "Designed for" },
-                    new Brand() {Name = "$160", Role = "Retail" },
-                    new Brand() {Name = "1985", Role = "Release Year" },
-                }
-            };
+                return HttpNotFound();
+            }
+
+            var sneakers = _sneakerinformationRepository.GetSneakers((int)id);
 
             return View(sneakers);
         }
