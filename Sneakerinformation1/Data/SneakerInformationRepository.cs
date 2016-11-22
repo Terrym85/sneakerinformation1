@@ -42,6 +42,11 @@ namespace Sneakerinformation1.Data
             }
     };
 
+        public Sneakers[] GetSneakers()
+        {
+            return _sneakers;
+        }
+
         public Sneakers GetSneakers(int id)
         {
             Sneakers sneakersToReturn = null;

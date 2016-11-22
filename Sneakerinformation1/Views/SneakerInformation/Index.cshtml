@@ -1,0 +1,19 @@
+﻿@model Sneakerinformation1.Models.Sneakers[]
+
+@{ 
+    ViewBag.ShoeModel = "Sneakers";
+}
+
+<h2>@ViewBag.ShoeModel</h2>
+
+<div class="row">
+    @foreach (var sneakers in Model)
+    {
+        <div class="col-md-3">
+            <h4>@sneakers.DisplayText</h4>
+            <img src="~/Images/ch1 1.jpg"
+                 alt="@sneakers.DisplayText"
+                 class="img-responsive" />
+        </div>
+    }
+    </div>

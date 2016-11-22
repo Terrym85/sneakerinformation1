@@ -17,6 +17,13 @@ namespace Sneakerinformation1.Controllers
             _sneakerinformationRepository = new SneakerInformationRepository();
         }
 
+        public ActionResult Index()
+        {
+            var sneakers = _sneakerinformationRepository.GetSneakers();
+
+            return View(sneakers);
+        }
+
         public ActionResult Detail(int? id)
         {
             if (id == null)
